@@ -1,0 +1,43 @@
+.card {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .thumbnail {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .thumbnail:hover {
+    transform: scale(1.1);
+  }
+  
+  .thumbnail.active {
+    border: 2px solid #007bff;
+  }
+  
+  .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .discount {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .mat-fab {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .mat-icon {
+    font-size: 24px;
+  }
+  
+  .cursor-pointer {
+    cursor: pointer;
+  }
