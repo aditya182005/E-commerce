@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -12,13 +12,13 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'webapp';
 
    wishlistService = inject(WishlistService);
     cartService = inject(CartService);
     authService=inject(AuthService)
-  
+
 
   ngOnInit(){
 
@@ -27,6 +27,6 @@ export class AppComponent {
       this.cartService.init();
 
     }
-   
+
   }
 }

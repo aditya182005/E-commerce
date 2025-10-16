@@ -23,7 +23,7 @@ import { ToastrService } from 'ngx-toastr';
     MatButtonModule
   ],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   loginForm: FormGroup;

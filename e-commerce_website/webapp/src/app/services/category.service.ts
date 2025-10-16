@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Category } from '../types/category';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
   http = inject(HttpClient);
-  baseUrl = 'http://localhost:3000/category'; // ✅ Base URL Define Kiya
+  baseUrl = `${environment.apiUrl}/api/categories`; // ✅ Base URL Define Kiya
 
   constructor() { }
 

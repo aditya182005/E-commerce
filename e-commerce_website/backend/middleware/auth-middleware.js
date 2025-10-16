@@ -10,7 +10,7 @@ function verifyToken(req, res, next) {
     }
     
     try {
-        const decoded = jwt.verify(token, "seceret"); // Ensure "seceret" is the correct key
+        const decoded = jwt.verify(token, "secret"); // Fixed: Match the secret key used in auth-handler.js
         req.user = decoded;
         next();
     } catch (err) {

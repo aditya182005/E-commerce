@@ -1,22 +1,25 @@
 .footer {
-  background-color: #000;
+  background: linear-gradient(to right, #1976D2, #1565C0);
   color: #fff;
-  padding: 10px 0; // ✅ Minimum height
+  padding: 40px 0;
+  margin-top: auto;
 
   h1 {
-    font-size: 18px; // ✅ छोटा किया
+    font-size: 24px;
     font-weight: bold;
+    margin-bottom: 10px;
   }
 
   h3 {
-    font-size: 12px; // ✅ Compact headings
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+    color: #E3F2FD;
   }
 
   p {
-    color: #bbb;
-    font-size: 10px;
+    color: #E3F2FD;
+    font-size: 14px;
   }
 
   ul {
@@ -46,8 +49,13 @@
     font-size: 12px; // ✅ Icons छोटे किए
 
     a {
-      color: var(--primary-color);
-      transition: color 0.3s;
+      color: #E3F2FD;
+      transition: color 0.3s, transform 0.2s;
+      
+      &:hover {
+        color: #BBDEFB;
+        transform: scale(1.1);
+      }
 
       &:hover {
         color: #ffcc00;

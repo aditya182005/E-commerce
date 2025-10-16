@@ -52,16 +52,31 @@ async function seedDatabase() {
 
     // Insert Products (now with correct field names)
     const products = await Product.insertMany(
-      data.products.map((p) => ({
-        name: p.name,
-        brandId: brandMap[p.brand],
-        categoryId: categoryMap[p.category],
-        price: p.price,
-        shortDescription: p.shortDescription || p.description?.slice(0, 80),
-        description: p.description,
-        stock: p.stock,
-        images: p.images
-      }))
+      data.products
+        .filter((p) => {
+          const categoryId = categoryMap[p.category];
+          const brandId = brandMap[p.brand];
+          if (!categoryId || !brandId) {
+            console.error(`Skipping product with missing category or brand: ${p.name}`);
+            console.error(`Category: ${p.category}, Brand: ${p.brand}`);
+            return false;
+          }
+          return true;
+        })
+        .map((p) => {
+          return {
+            name: p.name,
+            brandId: brandMap[p.brand],
+            categoryId: categoryMap[p.category],
+            price: p.price,
+            shortDescription: p.shortDescription || p.description?.slice(0, 80),
+            description: p.description,
+            stock: p.stock,
+            images: p.images,
+            isFeatured: p.isFeatured || false,
+            isNewProducts: p.isNewProducts || false
+          };
+        })
     );
 
     const productMap = Object.fromEntries(products.map((p) => [p.name, p._id]));

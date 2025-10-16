@@ -1,8 +1,9 @@
+@use 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel' as owl-carousel;
+@use 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default' as owl-theme;
+
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@500&display=swap');
 @import '@angular/material/prebuilt-themes/indigo-pink.css'; /* ✅ Material Theme */
 @import 'bootstrap/dist/css/bootstrap.min.css';
-@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
-@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 
 @tailwind base;
 @tailwind components;

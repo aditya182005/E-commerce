@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Brand } from '../types/brand';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Brand } from '../types/brand';
 export class BrandService {
 
    http = inject(HttpClient);
-    baseUrl = 'http://localhost:3000/brand'; // ✅ Base URL 
+    baseUrl = `${environment.apiUrl}/api/brands`; // ✅ Base URL
   
     constructor() { }
   

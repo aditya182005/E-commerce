@@ -32,19 +32,19 @@ module.exports = {
     {
       name: "Admin User",
       email: "admin@example.com",
-      password: "$2b$10$hashForAdmin", // hash using bcrypt
+      password: "123456", // hash using bcrypt
       isAdmin: true
     },
     {
       name: "Alice Johnson",
       email: "alice@example.com",
-      password: "$2b$10$hashForAlice",
+      password: "123456", // hash using bcrypt
       isAdmin: false
     },
     {
       name: "Bob Seller",
       email: "bob@example.com",
-      password: "$2b$10$hashForBob",
+      password: "123456", // hash using bcrypt
       isAdmin: false
     }
   ],

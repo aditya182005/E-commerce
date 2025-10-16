@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { Product } from '../types/product';
 import { CartItem } from '../types/cartItem';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class CartService {
   http = inject(HttpClient);
   items: CartItem[] = [];
 
-  private apiUrl = 'http://localhost:3000/customer';
+  private apiUrl = `${environment.apiUrl}/api/customers`;
 
   constructor() {
     this.init(); // Cart को लोड करें

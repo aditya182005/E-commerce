@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../types/product';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Product } from '../types/product';
 export class ProductService {
 
    http = inject(HttpClient);
-   baseUrl = 'http://localhost:3000/product'; // ✅ Correct Base URL
+   baseUrl = `${environment.apiUrl}/api/products`; // ✅ Correct Base URL
 
    constructor() { }
 

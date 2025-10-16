@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common'; // ✅ Add CommonModule for HTML
     ReactiveFormsModule
   ],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
   registerForm: FormGroup;

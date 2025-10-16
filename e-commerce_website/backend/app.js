@@ -1,8 +1,10 @@
 const express = require("express");
-const mongoose =require("mongoose");
+const mongoose = require("mongoose");
+const path = require("path");
+const cors = require("cors");
 const app = express();
 const port = 3000;
-const cors= require("cors")
+
 const categoryRoutes = require("./routes/category");
 const brandRoutes = require("./routes/brand");
 const orderRoutes = require("./routes/order");
@@ -15,17 +17,21 @@ const { verifyToken, isAdmin } = require("./middleware/auth-middleware");
 app.use(cors());
 app.use(express.json());
 
-app.get("/",(req,res)=>{
+// Health check route
+app.get("/", (req, res) => {
     res.send("Server Running")
-})
-app.use("/category", verifyToken, categoryRoutes);
+});
 
-app.use("/brand", verifyToken, brandRoutes);
-app.use("/orders", verifyToken, orderRoutes);
-app.use("/product", verifyToken, productRoutes);
+// Serve static files from uploads directory
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-app.use("/customer", verifyToken, customertRoutes);
-app.use("/auth", authRoutes);
+// API Routes
+app.use("/api/categories", verifyToken, categoryRoutes);
+app.use("/api/brands", verifyToken, brandRoutes);
+app.use("/api/orders", verifyToken, orderRoutes);
+app.use("/api/products", verifyToken, productRoutes);
+app.use("/api/customers", verifyToken, customertRoutes);
+app.use("/api/auth", authRoutes);
 
 
 async function connectDb(){

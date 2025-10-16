@@ -6,7 +6,7 @@ import { inject, Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:3000/auth'; // ✅ Backend API URL
+  private baseUrl = 'http://localhost:3000/api/auth'; // ✅ Backend API URL
   http = inject(HttpClient);
 
   constructor() {}
@@ -21,8 +21,7 @@ export class AuthService {
 
   // Login API
   public login(email: string, password: string) {
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
     const data = { email, password };
     return this.http.post(this.baseUrl + '/login', data, { headers });
   }
@@ -61,20 +60,4 @@ export class AuthService {
       password: newPassword
     });
   }
-}
-// ...existing code...
-import { environment } from '../../environments/environment';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class ProductService {
-  private apiUrl = environment.apiUrl;
-
-  constructor(private http: HttpClient) {}
-
-  getProducts() {
-    return this.http.get(`${this.apiUrl}/product`);
-  }
-  // ...existing code...
 }
