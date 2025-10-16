@@ -5,7 +5,7 @@ async function addToCart(userId, productId, quantity) {
     let product = await Cart.findOne({ userId: userId, productId: productId });
     if (product) {
         if(product.quantity + quantity == 0){
-            await removefromCart(productId);
+            await removefromCart(userId, productId);
         }else{
         await Cart.findByIdAndUpdate(product._id, {
             quantity: product.quantity + quantity
@@ -24,7 +24,6 @@ async function addToCart(userId, productId, quantity) {
 
 async function removefromCart(userId, productId) {
     await Cart.findOneAndDelete({ userId: userId, productId: productId });
-   
 }
 
 async function getCartItems(userId) {

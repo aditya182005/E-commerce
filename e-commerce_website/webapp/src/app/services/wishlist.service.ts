@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { Product } from '../types/product';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class WishlistService {
@@ -19,7 +20,7 @@ export class WishlistService {
     });
   }
 
-  private apiUrl = 'http://localhost:3000/customer';
+  private apiUrl = `${environment.apiUrl}/api/customers`;
 
   // Method to fetch all wishlists
   getWishlists() {

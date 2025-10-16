@@ -27,7 +27,7 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   // ✅ Home Page
-  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
+  { path: 'home', component: HomeComponent },
 
   // ✅ Admin Routes
   { path: 'admin', component: AdminDashboardComponent, canActivate: [adminGuard] },
@@ -51,8 +51,8 @@ export const routes: Routes = [
   { path: 'admin/header', component: HeaderComponent, canActivate: [adminGuard] },
 
   // ✅ Public Product Routes
-  { path: 'products', component: ProductListComponent, canActivate: [authGuard] },
-  { path: 'product/:id', component: ProductDetailComponent, canActivate: [authGuard] },
+  { path: 'products', component: ProductListComponent },
+  { path: 'product/:id', component: ProductDetailComponent },
 
 
   { path: 'wishlists', component: WishlistsComponent, canActivate: [authGuard] },

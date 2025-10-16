@@ -94,9 +94,15 @@ export class ShoppingCartComponent implements OnInit {
   completeOrder() {
     if (this.isPlacingOrder) return; // prevent double submission
     this.isPlacingOrder = true;
-  
+
+    // Transform cart items to match backend order model structure
+    const transformedItems = this.cartItems.map(item => ({
+      product: item.product._id as any,
+      quantity: item.quantity
+    }));
+
     let order: Order = {
-      items: this.cartItems,
+      items: transformedItems,
       paymentType: this.addressForm.value.paymentType || this.paymentType,
       address: {
         address1: this.addressForm.value.address1 || '',

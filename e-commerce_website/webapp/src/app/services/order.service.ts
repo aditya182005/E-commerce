@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Order } from '../types/order';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,8 @@ import { Order } from '../types/order';
 export class OrderService {
   http = inject(HttpClient);
 
-  private customerUrl = 'http://localhost:3000/customer';
-  private baseUrl = 'http://localhost:3000/orders';
+  private customerUrl = `${environment.apiUrl}/api/customers`;
+  private baseUrl = `${environment.apiUrl}/api/orders`;
 
   private getAuthHeaders(): HttpHeaders {
     return new HttpHeaders({

@@ -110,7 +110,7 @@ export class BuyNowComponent implements OnInit {
   confirmPayment() {
     this.orderService.addOrder({
       date: new Date(),
-      items: [{ product: this.product, quantity: 1 }],
+      items: [{ product: this.product._id as any, quantity: 1 }],
       paymentType: this.selectedMethod,
       address: this.address,
       status: this.selectedMethod === 'cod' ? 'Pending' : 'Paid',
