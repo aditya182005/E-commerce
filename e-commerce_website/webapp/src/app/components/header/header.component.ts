@@ -28,6 +28,10 @@ export class HeaderComponent implements OnInit {
   categoryList: Category[] = [];
   searchQuery: string = ''; // ✅ Ensure this is defined
 
+  get isAuthPage(): boolean {
+    return this.router.url === '/login' || this.router.url === '/register';
+  }
+
   ngOnInit() {
     this.customerService.getCategories().subscribe((result) => {
       this.categoryList = result;
@@ -56,7 +60,7 @@ export class HeaderComponent implements OnInit {
     }
   
     console.log('Navigating to category:', id);
-    this.router.navigate(['/products'], { queryParams: { category: id } });
+    this.router.navigate(['/products'], { queryParams: { categoryId: id } });
   }
 logout(){
   this.authService.logout();

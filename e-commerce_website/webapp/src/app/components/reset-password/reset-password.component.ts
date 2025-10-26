@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -22,7 +22,7 @@ import { ToastrService } from 'ngx-toastr'; // ✅ Import ToastrService
   ],
   templateUrl: './reset-password.component.html'
 })
-export class ResetPasswordComponent {
+export class ResetPasswordComponent implements OnInit {
   token = '';
   message = '';
   error = ''; // ✅ Add this to avoid the template error
@@ -34,7 +34,9 @@ export class ResetPasswordComponent {
     private fb: FormBuilder,
     private router: Router,
     private toastr: ToastrService // ✅ Inject ToastrService
-  ) {
+  ) {}
+
+  ngOnInit() {
     this.token = this.route.snapshot.params['token'];
 
     this.form = this.fb.group({

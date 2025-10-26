@@ -97,7 +97,7 @@ async function forgotPassword(email) {
   user.resetPasswordExpires = Date.now() + 3600000;
   await user.save();
 
-  const resetLink = `http://localhost:42050/reset-password/${token}`;
+  const resetLink = `http://localhost:4200/reset-password/${token}`;
   const transporter = await createTestTransporter();
 
   const info = await transporter.sendMail({

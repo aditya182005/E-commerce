@@ -2,14 +2,13 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { Product } from '../../types/product';
 import { ActivatedRoute } from '@angular/router';
-import { Category } from '../../types/category';
 import { Brand } from '../../types/brand';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router'; 
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -32,30 +31,32 @@ export class ProductListComponent implements OnInit {
   isNext: boolean = true;
 
   products: Product[] = [];
-  categories: Category[] = [];
   brands: Brand[] = [];
 
   ngOnInit() {
-    this.loadCategories();
-    this.loadBrands();
-
     this.route.queryParams.subscribe((params) => {
       this.searchTerm = params['search'] || '';
       this.categoryId = params['categoryId'] || '';
+      this.loadBrands();
       this.getProducts();
     });
   }
 
-  loadCategories() {
-    this.customerService.getCategories().subscribe((result) => {
-      this.categories = result;
-    });
-  }
-
   loadBrands() {
-    this.customerService.getBrands().subscribe((result) => {
-      this.brands = result;
-    });
+    if (this.categoryId) {
+      // Fetch products for the category and extract unique brands
+      this.customerService.getProducts('', this.categoryId, '', -1, '', 1, 1000).subscribe(products => {
+        const brandIds = [...new Set(products.map(p => p.brandId))];
+        this.customerService.getBrands().subscribe(allBrands => {
+          this.brands = allBrands.filter(brand => brand._id && brandIds.includes(brand._id));
+        });
+      });
+    } else {
+      // If no category selected, show all brands
+      this.customerService.getBrands().subscribe((result) => {
+        this.brands = result;
+      });
+    }
   }
 
   getProducts() {

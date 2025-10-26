@@ -64,7 +64,7 @@
   <div class="card-body p-0">
     <div class="row border-top pt-3" *ngFor="let item of order.items">
       <div class="col-md-3 mb-3 mb-md-0">
-        <img [src]="item.product.images[0]" alt="Product Image" class="img-fluid rounded shadow-sm">
+        <img [src]="'http://localhost:3000/' + item.product.images[0] || 'https://via.placeholder.com/150'" alt="Product Image" class="img-fluid rounded shadow-sm">
       </div>
       <div class="col-md-9">
         <h3 class="fw-semibold">{{ item.product.name }}</h3>
@@ -98,4 +98,3 @@
     🏠 Back to Home
   </a>
 </div>
-
