@@ -13,6 +13,7 @@ import { WishlistService } from '../../services/wishlist.service';
 import { CartService } from '../../services/cart.service';
 import { MatDialog } from '@angular/material/dialog';
 import { BuyNowComponent } from '../buy-now/buy-now.component';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-product-detail',
@@ -58,7 +59,7 @@ export class ProductDetailComponent implements OnInit {
     if (id) {
       this.customerService.getProductById(id).subscribe((result) => {
         this.product = result;
-        this.selectedImage = result.images?.[0] || 'https://via.placeholder.com/400x400';
+        this.selectedImage = this.getImageUrl(result.images?.[0] || 'https://via.placeholder.com/400x400');
 
         this.loadReviews();
 
@@ -110,7 +111,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   selectImage(image: string) {
-    this.selectedImage = image;
+    this.selectedImage = this.getImageUrl(image);
   }
 
   get SellingPrice() {
@@ -161,5 +162,16 @@ export class ProductDetailComponent implements OnInit {
       width: '400px',
       data: product
     });
+  }
+
+  // Get full image URL for display
+  getImageUrl(imagePath: string): string {
+    if (!imagePath) return '';
+    // If it's already a full URL, return as is
+    if (imagePath.startsWith('http')) {
+      return imagePath;
+    }
+    // Otherwise, prepend the base URL
+    return `${environment.apiUrl}/${imagePath}`;
   }
 }

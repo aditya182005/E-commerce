@@ -58,7 +58,7 @@ module.exports = {
     shortDescription: "Apple iPhone 13 - 128GB Blue",
     description: "The latest iPhone 13 with advanced A15 Bionic chip and dual camera system.",
     stock: 25,
-    images: ["iphone13.jpg"]
+    images: ["uploads/products/iphone13-1.jpg"]
   },
   {
     name: "Samsung Galaxy S21",
@@ -68,7 +68,7 @@ module.exports = {
     shortDescription: "Samsung Galaxy S21 Ultra - 256GB",
     description: "High-end flagship with superior display and powerful performance.",
     stock: 20,
-    images: ["s21.jpg"]
+    images: ["uploads/products/s21-1.jpg"]
   },
   {
     name: "Sony WH-1000XM4",
@@ -78,7 +78,7 @@ module.exports = {
     shortDescription: "Wireless Noise Cancelling Headphones",
     description: "Industry-leading noise cancellation with dual noise sensor technology.",
     stock: 30,
-    images: ["https://placehold.co/600x400?text=Sony+Headphones"]
+    images: ["uploads/products/sony-headphones-1.jpg"]
   },
   {
     name: "Men's T-Shirt",
@@ -88,7 +88,7 @@ module.exports = {
     shortDescription: "Nike Dri-FIT Men's T-Shirt",
     description: "A comfortable and stylish t-shirt for everyday wear.",
     stock: 50,
-    images: ["https://placehold.co/600x400?text=Men\'s+T-Shirt"]
+    images: ["uploads/products/nike-tshirt-1.jpg"]
   },
   {
     name: "Women's Leggings",
@@ -98,7 +98,7 @@ module.exports = {
     shortDescription: "Puma Women's Essentials Leggings",
     description: "Comfortable and stylish leggings for any occasion.",
     stock: 40,
-    images: ["https://placehold.co/600x400?text=Women\'s+Leggings"]
+    images: ["uploads/products/puma-leggings-1.jpg"]
   },
   {
     name: "Women's Running Shoes",
@@ -108,7 +108,7 @@ module.exports = {
     shortDescription: "Adidas Ultraboost 22 Women's Running Shoes",
     description: "Experience incredible energy return with Adidas Ultraboost.",
     stock: 30,
-    images: ["https://placehold.co/600x400?text=Running+Shoes"]
+    images: ["uploads/products/adidas-shoes-1.jpg"]
   },
   {
     name: "Basketball",
@@ -118,7 +118,7 @@ module.exports = {
     shortDescription: "Nike Everyday Playground 8P Basketball",
     description: "Durable rubber for outdoor courts.",
     stock: 20,
-    images: ["https://placehold.co/600x400?text=Basketball"]
+    images: ["uploads/products/nike-basketball-1.jpg"]
   },
   {
     name: "Instant Coffee",
@@ -128,7 +128,7 @@ module.exports = {
     shortDescription: "Nescafe Classic Instant Coffee",
     description: "A rich and aromatic coffee to start your day.",
     stock: 100,
-    images: ["https://placehold.co/600x400?text=Instant+Coffee"]
+    images: ["uploads/products/nescafe-coffee-1.jpg"]
   },
   {
     name: "Soft Drink",
@@ -138,7 +138,7 @@ module.exports = {
     shortDescription: "Coca-Cola Original Taste",
     description: "The classic and refreshing taste of Coca-Cola.",
     stock: 200,
-    images: ["https://placehold.co/600x400?text=Soft+Drink"]
+    images: ["uploads/products/coca-cola-1.jpg"]
   },
   {
     name: "Bookshelf",
@@ -148,7 +148,7 @@ module.exports = {
     shortDescription: "Ikea BILLY Bookshelf",
     description: "A simple and versatile bookshelf for your home.",
     stock: 15,
-    images: ["https://placehold.co/600x400?text=Bookshelf"]
+    images: ["uploads/products/ikea-bookshelf-1.jpg"]
   },
   {
     name: "Sofa Set",
@@ -158,7 +158,7 @@ module.exports = {
     shortDescription: "Home Centre 3-Seater Sofa",
     description: "A comfortable and stylish sofa for your living room.",
     stock: 10,
-    images: ["https://placehold.co/600x400?text=Sofa+Set"]
+    images: ["uploads/products/home-centre-sofa-1.jpg"]
   },
   {
     name: "The Alchemist",
@@ -168,7 +168,7 @@ module.exports = {
     shortDescription: "A Fable About Following Your Dream",
     description: "Paulo Coelho's enchanting novel has inspired a devoted following around the world.",
     stock: 50,
-    images: ["https://placehold.co/600x400?text=The+Alchemist"]
+    images: ["uploads/products/alchemist-book-1.jpg"]
   },
   {
     name: "Sapiens: A Brief History of Humankind",
@@ -178,7 +178,7 @@ module.exports = {
     shortDescription: "A groundbreaking narrative of humanity’s creation and evolution.",
     description: "Yuval Noah Harari's book explores the ways in which biology and history have defined us.",
     stock: 40,
-    images: ["https://placehold.co/600x400?text=Sapiens"]
+    images: ["uploads/products/sapiens-book-1.jpg"]
   }
 
 ],
@@ -219,4 +219,3 @@ module.exports = {
     }
   ]
 };
-

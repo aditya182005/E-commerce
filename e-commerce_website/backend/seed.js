@@ -89,7 +89,7 @@ async function seedDatabase() {
         paymentMethod: o.paymentMethod,
         status: o.status,
         items: o.items.map((i) => ({
-          productId: productMap[i.productName],
+          product: productMap[i.productName],
           quantity: i.quantity,
           price: i.price
         }))
@@ -101,7 +101,7 @@ async function seedDatabase() {
       data.carts.map((c) => ({
         userId: userMap[c.userEmail],
         items: c.items.map((i) => ({
-          productId: productMap[i.productName],
+          product: productMap[i.productName],
           quantity: i.quantity
         }))
       }))

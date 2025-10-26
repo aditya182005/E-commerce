@@ -1,7 +1,7 @@
 <div class="product-card">
     <!-- Product Image -->
     <div class="product-image-container">
-      <img [src]="product.images[0]" alt="Product Image" class="product-image" />
+      <img [src]="getImageUrl(product.images[0])" alt="Product Image" class="product-image" />
     </div>
   
     <!-- Product Details -->
@@ -38,4 +38,3 @@
       <a [routerLink]="'/product/' + product._id" class="view-details-btn">View Details</a>
     </div>
   </div>
-  
