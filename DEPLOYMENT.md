@@ -10,11 +10,49 @@ This guide provides step-by-step instructions for deploying the e-commerce appli
 
 ## Step 1: Set Up MongoDB Atlas
 
-1. Go to [MongoDB Atlas](https://www.mongodb.com/atlas)
-2. Create a new cluster (free tier is fine)
-3. Create a database user
-4. Get your connection string: `mongodb+srv://username:password@cluster.mongodb.net/database-name`
-5. Add your IP address to the whitelist (or 0.0.0.0/0 for testing)
+### What is a MongoDB Connection String?
+A MongoDB connection string is a URL that tells your application how to connect to your MongoDB database. It includes:
+- Your database username and password
+- The cluster/server address
+- Database name
+- Connection options
+
+**Example**: `mongodb+srv://myuser:mypassword@cluster0.xxxxx.mongodb.net/my-ecommerce-db?retryWrites=true&w=majority`
+
+### How to Get Your Connection String:
+
+1. **Go to [MongoDB Atlas](https://www.mongodb.com/atlas)** and sign up/login
+
+2. **Create a Cluster**:
+   - Click "Create" or "Build a Cluster"
+   - Choose "FREE" tier (M0 Sandbox)
+   - Select your preferred cloud provider and region
+   - Click "Create Cluster" (takes 5-10 minutes)
+
+3. **Create Database User**:
+   - In your cluster dashboard, go to "Database Access" → "Add New Database User"
+   - Choose "Password" authentication
+   - Enter username and password (save these!)
+   - Set user privileges to "Read and write to any database"
+   - Click "Add User"
+
+4. **Configure Network Access**:
+   - Go to "Network Access" → "Add IP Address"
+   - For testing: Add `0.0.0.0/0` (allows all IPs)
+   - For production: Add Render's IP ranges or restrict to your IP
+
+5. **Get Connection String**:
+   - Go to "Clusters" → Click "Connect" on your cluster
+   - Choose "Connect your application"
+   - Select "Node.js" as driver (version 3.6 or later)
+   - Copy the connection string
+   - **Replace `<password>` with your actual password**
+   - **Replace `<database>` with your database name** (e.g., `ecommerce-db`)
+
+6. **Final Connection String Format**:
+   ```
+   mongodb+srv://yourusername:yourpassword@cluster0.xxxxx.mongodb.net/your-database-name?retryWrites=true&w=majority
+   ```
 
 ## Step 2: Deploy to Render
 
@@ -107,6 +145,10 @@ After successful seeding:
 1. **Build Failures**:
    - Check build logs in Render dashboard
    - Ensure all dependencies are in `package.json`
+   - **Bundle Size Exceeded**: If you see "bundle initial exceeded maximum budget":
+     - Edit `e-commerce_website/webapp/angular.json`
+     - Increase the `maximumError` value in the budgets section (e.g., from "1MB" to "2MB")
+     - Commit and redeploy
 
 2. **Database Connection**:
    - Verify `MONGODB_URI` is correct
