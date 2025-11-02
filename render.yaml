@@ -21,7 +21,6 @@ services:
     runtime: static
     buildCommand: cd e-commerce_website/webapp && npm install && npm run build
     staticPublishPath: ./e-commerce_website/webapp/dist
-    rootDirectory: webapp
     envVars:
       - key: API_URL
         fromService:
