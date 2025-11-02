@@ -20,7 +20,7 @@ services:
     name: e-commerce-frontend
     runtime: static
     buildCommand: cd e-commerce_website/webapp && npm install && npm run build
-    staticPublishPath: ./e-commerce_website/webapp/dist
+    staticPublishPath: e-commerce_website/webapp/dist
     envVars:
       - key: API_URL
         fromService:
