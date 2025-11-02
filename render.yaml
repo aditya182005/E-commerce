@@ -20,7 +20,7 @@ services:
     name: e-commerce-frontend
     runtime: node
     buildCommand: cd e-commerce_website/webapp && npm install && npm run build
-    startCommand: npx serve -s dist/webapp -l $PORT
+    startCommand: npm install -g serve && serve -s dist/webapp -l $PORT
     envVars:
       - key: API_URL
         fromService:
