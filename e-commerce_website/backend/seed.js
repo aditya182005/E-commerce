@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
@@ -12,8 +13,11 @@ const Review = require("./db/review");
 
 const data = require("./seedData");
 
+// Use environment variable for MongoDB connection
+const mongoURI = process.env.MONGODB_URI || "mongodb://localhost:27017/e-comm-store-db";
+
 mongoose
-  .connect("mongodb://localhost:27017/e-comm-store-db")
+  .connect(mongoURI)
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 

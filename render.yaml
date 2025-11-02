@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: e-commerce-backend
+    runtime: node
+    buildCommand: cd e-commerce_website/backend && npm install
+    startCommand: cd e-commerce_website/backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false # IMPORTANT: Set this manually in Render dashboard with your MongoDB Atlas connection string
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: e-commerce-frontend
+          property: host
+    healthCheckPath: /
+
+  - type: web
+    name: e-commerce-frontend
+    runtime: static
+    buildCommand: cd e-commerce_website/webapp && npm install && npm run build
+    staticPublishPath: ./e-commerce_website/webapp/dist/webapp
+    envVars:
+      - key: API_URL
+        fromService:
+          type: web
+          name: e-commerce-backend
+          property: host
