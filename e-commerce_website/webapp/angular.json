@@ -56,12 +56,7 @@
                 "styles": {
                   "inlineCritical": false
                 }
-              },
-              "buildOptimizer": false,
-              "aot": true,
-              "extractLicenses": false,
-              "namedChunks": false,
-              "vendorChunk": false
+              }
             },
             "development": {
               "optimization": false,
