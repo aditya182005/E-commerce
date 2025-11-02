@@ -19,7 +19,7 @@ services:
   - type: web
     name: e-commerce-frontend
     runtime: static
-    buildCommand: cd e-commerce_website/webapp && npm install && npm run build --configuration=production
+    buildCommand: cd e-commerce_website/webapp && npm install && npx ng build --configuration=production --optimization=true
     staticPublishPath: ./e-commerce_website/webapp/dist/webapp
     envVars:
       - key: API_URL
