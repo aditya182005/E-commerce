@@ -19,7 +19,7 @@ services:
   - type: web
     name: e-commerce-frontend
     runtime: static
-    buildCommand: cd e-commerce_website/webapp && npm install && npm run build && ls -la dist/
+    buildCommand: cd e-commerce_website/webapp && npm install && npm run build
     staticPublishPath: ./e-commerce_website/webapp/dist/webapp
     envVars:
       - key: API_URL
@@ -27,3 +27,4 @@ services:
           type: web
           name: e-commerce-backend
           property: host
+    # Force configuration update
